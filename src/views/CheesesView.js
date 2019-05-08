@@ -11,13 +11,18 @@ import CheeseCategorySelector from "../components/cheese/CheeseCategorySelector"
 class CheesesView extends Component {
   state = {
     // TODO: implement the initial state
+    cheeses: [],
+    categories: [],
+    selectedCategoryID: "",
   };
 
   async componentDidMount() {
-    const cheeseRes = // TODO: implement a request to the cheeses collection
+      // TODO: implement a request to the cheeses collection
+    const cheeseRes = await request.get("/cheeses");
     const cheeses = cheeseRes.data;
 
-    const categoriesRes = // TODO: implement a request to the categories collection
+    // TODO: implement a request to the categories collection
+    const categoriesRes = await request.get("/categories");
     const categories = categoriesRes.data;
 
     this.setState({ cheeses, categories });
@@ -27,10 +32,13 @@ class CheesesView extends Component {
     this.setState(state => {
       const { cheeses } = state;
       // TODO: return the new state that merges the cheeses list with the new cheese
+      const newCheeses = [cheese, ...cheeses]
+      return {cheeses: newCheeses}
     });
 
   deleteCheese = async cheeseID => {
-    const res = // TODO: implement a request to the correct endpoint to delete the cheese (be mindful of the HTTP method you need)
+      // TODO: implement a request to the correct endpoint to delete the cheese (be mindful of the HTTP method you need)
+    const res = await request.delete("/cheeses/:cheeseID");
 
     // if the DELETE request was unsuccessful exit early
     if (res.status !== 200) { // <-- normally success DELETE is status 204
@@ -54,7 +62,8 @@ class CheesesView extends Component {
     // selects the "all cheeses" or "cheeses by category" endpoint depending on the category ID
     const endpoint = selectedCategoryID === "" ? "/cheeses" : `/cheeses/category/${selectedCategoryID}`;
 
-    const res = // TODO: fetch the cheeses using the endpoint
+    // TODO: fetch the cheeses using the endpoint
+    const res = await request.get(endpoint);
     const cheeses = res.data;
 
     // updates state with the new selectedCategoryID and cheeses list
@@ -70,6 +79,8 @@ class CheesesView extends Component {
 					<Col lg={{ span: 8, offset: 2 }}>
             <CheeseForm
               // TODO: complete the props
+              categories={categories}
+              addCheese={this.addToCheeses}
             />
 					</Col>
 				</Row>
@@ -79,11 +90,16 @@ class CheesesView extends Component {
             <h5>Cheeses by Category</h5>
             <CheeseCategorySelector
               {/* TODO: complete the props for this component */}
+              categories={categories}
+              firstOption="All Cheeses"
+              categoryID={selectedCategoryID}
+              handleChange={this.getCategoryCheeses}
             />
           </Col>
         </Row>
         <CheesesList
           {/* TODO: complete the props for this component */}
+          cheeses={cheeses}
           // only show [remove] button if in 'All' category (selectedCategoryID is an empty string)
           removeCheese={selectedCategoryID === "" && this.deleteCheese}
         />
