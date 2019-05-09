@@ -20,7 +20,7 @@ const CheeseCategorySelector = props => {
       onChange={handleChange}
     >
       {/* TODO: implement the first option */}
-      <option>{firstOption}</option>
+      <option value="">{firstOption}</option>
       {/* TODO: transform the categories into options */}
       {categories.map(createCategoryOption)}
     </Form.Control>
@@ -30,7 +30,7 @@ const CheeseCategorySelector = props => {
 CheeseCategorySelector.propTypes = {
   // TODO: implement the prop types
   categories: PropTypes.arrayOf(categoryType).isRequired,
-  categoryID: PropTypes.oneOfType(PropTypes.string, PropTypes.number).isRequired,
+  categoryID: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   handleChange: PropTypes.func.isRequired,
   firstOption: PropTypes.string,
 };

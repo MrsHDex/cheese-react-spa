@@ -28,10 +28,10 @@ class CategoriesView extends Component {
       // TODO: implement returning a new state with the category added to categories list
      const newCategories = [category, ...categories]
       return {categories: newCategories}
+    // const newCategory = [category]
+    // return {categories: [...categories, newCategory]};
      
     });
-
-
 
   render() {
     const { categories } = this.state;

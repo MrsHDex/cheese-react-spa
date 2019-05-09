@@ -51,13 +51,13 @@ class CheeseForm extends Component {
 
   handleInputChange = event => {
     const { name, value } = event.target;
-    const {disabled} = shouldDisable;
+    
     this.setState(currentState => {
       // TODO: implement the rest of the change handler
       const { fields } = currentState;
       const updatedFields = { ...fields };
       updatedFields[name] = value;
-
+      const disabled = shouldDisable(updatedFields);
       return { fields: updatedFields, disabled };
     });
   }

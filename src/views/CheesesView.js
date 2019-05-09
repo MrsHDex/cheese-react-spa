@@ -38,7 +38,7 @@ class CheesesView extends Component {
 
   deleteCheese = async cheeseID => {
       // TODO: implement a request to the correct endpoint to delete the cheese (be mindful of the HTTP method you need)
-    const res = await request.delete("/cheeses/:cheeseID");
+    const res = await request.delete("/cheeses/" + cheeseID);
 
     // if the DELETE request was unsuccessful exit early
     if (res.status !== 200) { // <-- normally success DELETE is status 204
