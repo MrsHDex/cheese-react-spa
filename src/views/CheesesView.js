@@ -88,8 +88,8 @@ class CheesesView extends Component {
         <Row className="text-center">
           <Col xs={12} md={8} lg={4}>
             <h5>Cheeses by Category</h5>
+            {/* TODO: complete the props for this component */}
             <CheeseCategorySelector
-              {/* TODO: complete the props for this component */}
               categories={categories}
               firstOption="All Cheeses"
               categoryID={selectedCategoryID}
@@ -97,8 +97,8 @@ class CheesesView extends Component {
             />
           </Col>
         </Row>
+        {/* TODO: complete the props for this component */}
         <CheesesList
-          {/* TODO: complete the props for this component */}
           cheeses={cheeses}
           // only show [remove] button if in 'All' category (selectedCategoryID is an empty string)
           removeCheese={selectedCategoryID === "" && this.deleteCheese}
