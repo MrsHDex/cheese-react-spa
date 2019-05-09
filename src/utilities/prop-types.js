@@ -10,7 +10,7 @@ export const cheeseType = PropTypes.shape({
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  category: PropTypes.categoryType.isRequired,
+  category: categoryType.isRequired,
 });
 
 export const menuType = PropTypes.shape({
