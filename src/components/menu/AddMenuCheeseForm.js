@@ -53,7 +53,7 @@ class AddMenuCheeseForm extends Component {
 
     // TODO: make an API request using the correct endpoint and data
     // check the API reference to see how to add a cheese to a menu
-    const res = await request.post('/menus/' + menuID +'/cheeses');
+    const res = await request.post('/menus/' + menuID +'/cheeses/' + cheeseID);
 
     // if the request failed exit early
     if (res.status !== 201) {
