@@ -55,8 +55,6 @@ class MenuForm extends Component {
               name="name"
               // TODO: implement the remaining props
               value={name}
-              minLength="3"
-              maxLength="15"
               onChange={this.handleInputChange}
             />
           </Form.Group>
@@ -79,7 +77,7 @@ class MenuForm extends Component {
 
 MenuForm.propTypes = {
   // TODO: implement the prop types for this component (see below)
-  addMenu: PropTypes.func.isRequired
+  addMenu: PropTypes.func.isRequired,
 };
 
 export default MenuForm;

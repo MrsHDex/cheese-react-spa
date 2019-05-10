@@ -80,12 +80,13 @@ class AddMenuCheeseForm extends Component {
 
     // TODO: complete the if statement
     // render null if the available cheeses list is empty
-    if (availableCheeses === "") {
-      return null;
-    }
+    // if (availableCheeses === "") {
+    //   return null;
+    // }
     // can you rewrite this if / return section using the short circuit expression?
     // condition && ( );
     return (
+        availableCheeses.length !== 0 && (
       <Container className="text-center">
         <Form>
           <Form.Group as={Col} sm={{ offset: 4, span: 4 }}>
@@ -111,6 +112,7 @@ class AddMenuCheeseForm extends Component {
           </Button>
         </Form>
       </Container>
+        )
     );
   }
 }
