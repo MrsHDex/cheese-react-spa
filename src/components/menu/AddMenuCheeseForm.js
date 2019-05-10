@@ -118,7 +118,6 @@ class AddMenuCheeseForm extends Component {
 AddMenuCheeseForm.propTypes = {
   // TODO: complete the prop types
   currentCheeses: PropTypes.arrayOf(cheeseType).isRequired,
-  menuID: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   addCheese: PropTypes.func.isRequired,
 };
 
