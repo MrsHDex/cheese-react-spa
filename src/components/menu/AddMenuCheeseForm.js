@@ -43,8 +43,7 @@ class AddMenuCheeseForm extends Component {
   handleInputChange = event => {
     // TODO: update state when the select input changes
     const { value } = event.target;
-    const disabled = value.length < 3 || value.length > 15;
-    this.setState({ name: value, disabled });
+    this.setState({ cheeseID: value });
   };
 
   handleSubmit = async event => {
@@ -105,7 +104,7 @@ class AddMenuCheeseForm extends Component {
           <Button
             type="submit"
             variant="primary"
-            disabled={cheeseID}
+            disabled={cheeseID === ""}
             onClick={this.handleSubmit}
           >
             Add Cheese
