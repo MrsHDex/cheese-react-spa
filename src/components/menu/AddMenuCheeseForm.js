@@ -105,7 +105,7 @@ class AddMenuCheeseForm extends Component {
           <Button
             type="submit"
             variant="primary"
-            disabled={cheeseID === ""}
+            disabled={cheeseID}
             onClick={this.handleSubmit}
           >
             Add Cheese
