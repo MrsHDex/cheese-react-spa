@@ -79,7 +79,7 @@ class MenuView extends Component {
               // TODO: complete the props 
               menuID={menu.id}
               currentCheeses={menu.cheeses}
-              addMenuCheese={this.addToCheeses}
+              addCheese={this.addToCheeses}
             />
           </Col>
         </Row>
